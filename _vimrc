@@ -11,8 +11,8 @@ set incsearch
 set smartcase
 set ignorecase
 
-set foldmethod=marker
-set foldmarker={{{,}}}
+"set foldmethod=marker
+"set foldmarker={{{,}}}
 set shiftround
 
 set wildmenu
