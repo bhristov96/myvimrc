@@ -36,6 +36,12 @@ set softtabstop=4
 cnoreabbrev W w
 cnoreabbrev Q q
 
+cnoreabbrev so source %
+cnoreabbrev clone !git clone https://github.com/boyanhristov96/
+cnoreabbrev compile !g++ *.h *.cpp -g -o o --std=c++11
+cnoreabbrev run !./o
+cnoreabbrev memleak !valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./o
+
 autocmd BufRead,BufWritePre *.* normal gg=G``
 
 augroup js
