@@ -1,4 +1,5 @@
 set nocompatible
+colo darkblue
 syntax on
 set autoindent
 set smartindent
@@ -7,8 +8,10 @@ set number
 set wrap
 set scrolloff=10
 set hlsearch
+set showmatch
 set incsearch
 set smartcase
+filetype plugin indent on
 set ignorecase
 
 "set foldmethod=marker
@@ -17,13 +20,12 @@ set shiftround
 
 set wildmenu
 set wildmode=full
-set undofile
+"set undofile
 
 set linebreak
 set ruler
 
 set cursorline
-set background=light
 
 set nrformats-=octal
 set backspace=indent,eol,start
@@ -37,12 +39,23 @@ cnoreabbrev W w
 cnoreabbrev Q q
 
 cnoreabbrev so source %
+
 cnoreabbrev clone !git clone https://github.com/boyanhristov96/
 cnoreabbrev compile !g++ *.h *.cpp -g -o o --std=c++11
 cnoreabbrev run !./o
+cnoreabbrev myvim $MYVIMRC
 cnoreabbrev memleak !valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./o
 
-autocmd BufRead,BufWritePre *.* normal gg=G``
+"autocmd BufRead,BufWritePre *.* normal gg=G``
+
+augroup lisp
+    autocmd!
+    autocmd Filetype lisp cnoreabbrev lisp !clisp %
+    autocmd Filetype lisp cnoreabbrev lsip !clisp %
+    autocmd Filetype lisp cnoreabbrev lspi !clisp %
+
+    autocmd Filetype lisp set lisp
+augroup END
 
 augroup js
 	autocmd!
@@ -84,12 +97,13 @@ augroup arrowkeys
 	nnoremap <down> <nop>
 augroup END
 
-function! InsertTabWrapper()
-	let ind = col(".")-1
-	if !ind || getline(".")[ind - 1] !~ '\k'
-		return "\<tab>"
-	else
-		return "\<c-n>"
-endfunction
-	
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" Lisp (*.el = ELisp, *.cl = Common Lisp, *.jl = librep Lisp)
+"if has("fname_case")
+"  au BufNewFile,BufRead *.lsp,*.lisp,*.el,*.cl,*.jl,*.L,.emacs,.sawfishrc setf lisp
+"else
+"  au BufNewFile,BufRead *.lsp,*.lisp,*.el,*.cl,*.jl,.emacs,.sawfishrc setf lisp
+"endif
+"
+"if has('syntax') && has('eval')
+"  packadd! matchit
+"endif
