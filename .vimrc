@@ -1,4 +1,6 @@
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf_basic.py'
+"let g:ale_c_clangtidy_checks = ['-*', 'cppcoreguidelines-*']
+let g:ale_c_clangtidy_checks = ['.clang-tidy']
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -14,6 +16,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'dense-analysis/ale'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
