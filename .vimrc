@@ -1,6 +1,10 @@
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf_basic.py'
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set modifiable
+
+"Youcompleteme fix
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
