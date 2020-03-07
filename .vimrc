@@ -24,6 +24,7 @@ Plugin 'dense-analysis/ale'
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'preservim/nerdtree'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
